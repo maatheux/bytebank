@@ -12,4 +12,8 @@ export class NewTransferComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  transferAction() {
+    console.log('Valor transferido!');
+  }
+
 }
