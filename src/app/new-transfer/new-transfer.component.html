@@ -1,14 +1,19 @@
-<form>
-  <h1>Nova transferência</h1>
+<section class="container">
+  <form class="formulario">
+    <h1 class="formulario__titulo">Nova transferência</h1>
 
-  <div>
-    <label for="value">Valor</label>
-    <input type="text" id="value" />
-  </div>
-  <div>
-    <label for="toWho">Destino</label>
-    <input type="text" id="toWho" />
-  </div>
+    <div class="form-field">
+      <label class="form-field__label" for="value">Valor</label>
+      <input class="form-field__input" type="text" id="value" />
+    </div>
 
-  <button>Transferir</button>
-</form>
+    <div class="form-field">
+      <label class="form-field__label" for="toWho">Destino</label>
+      <input class="form-field__input" type="text" id="toWho" />
+    </div>
+
+    <div class="botao-wrapper">
+      <button class="botao">Transferir</button>
+    </div>
+  </form>
+</section>
