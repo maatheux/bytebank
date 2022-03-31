@@ -21,6 +21,12 @@ export class NewTransferComponent implements OnInit {
     console.log('Valor transferido!');
     const valuesToEmit = {value: this.value, valueTo: this.valueTo};
     this.whenTransfering.emit(valuesToEmit);
+    this.clearInput();
+  }
+
+  clearInput() {
+    this.value = 0;
+    this.valueTo = 0;
   }
 
 }
