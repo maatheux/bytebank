@@ -8,6 +8,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class NewTransferComponent implements OnInit {
 
   @Output() whenTransfering = new EventEmitter<any>(); // irá fazer a exportação dos dados
+  @Output() errorValue = new EventEmitter<any>();
 
   value: number;
   valueTo: number;
@@ -19,9 +20,19 @@ export class NewTransferComponent implements OnInit {
 
   transferAction() {
     console.log('Valor transferido!');
-    const valuesToEmit = {value: this.value, valueTo: this.valueTo};
-    this.whenTransfering.emit(valuesToEmit);
+    if (this.isValid()) {
+      const valuesToEmit = {value: this.value, valueTo: this.valueTo};
+      this.whenTransfering.emit(valuesToEmit);
+    }
     this.clearInput();
+  }
+
+  private isValid() {
+    const valueIsValid = this.value > 0;
+    if (!valueIsValid) {
+      this.errorValue.emit('Informe um valor válido!');
+    }
+    return valueIsValid;
   }
 
   clearInput() {

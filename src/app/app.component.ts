@@ -13,4 +13,8 @@ export class AppComponent {
     console.log($event);
     this.transferData = $event;
   }
+
+  errorMessage($event) {
+    window.alert($event)
+  }
 }
