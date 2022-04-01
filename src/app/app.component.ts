@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'bytebank';
   transferData: any;
+  testeNum: number = 10;
 
   transfer($event) {
     console.log($event);
