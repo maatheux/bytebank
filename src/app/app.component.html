@@ -1,5 +1,5 @@
 <app-new-transfer (whenTransfering)="transfer($event)"></app-new-transfer>
 <!--Recebendo os dados do new-transfer-->
 
-<p>Valor: {{ transferData?.value }}</p>
-<p>Destino: {{ transferData?.valueTo }}</p>
+<app-account-statement [transferData]="transferData" ></app-account-statement>
+
