@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class AccountStatementComponent implements OnInit {
 
-  @Input() transferData: any;
+  @Input() transferData: any[]; // receber os dados do component pai
 
   constructor() { }
 
