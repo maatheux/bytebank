@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TransferService } from './services/transfer.service';
 
 @Component({
   selector: 'app-root',
@@ -7,11 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'bytebank';
-  transferData: any[] = [];
+
+  // injetando uma uma instancia desse service, que a classe TransferService
+  constructor ( private service: TransferService ) {
+
+  }
 
   transfer($event) {
-    const transfer = {...$event, date: new Date()}
-    this.transferData.push(transfer);
-    console.log(transfer);
+    this.service.addNewTransfer($event); // chamando esse service
   }
 }

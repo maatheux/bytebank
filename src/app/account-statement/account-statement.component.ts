@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { TransferService } from '../services/transfer.service';
 
 @Component({
   selector: 'app-account-statement',
@@ -7,11 +8,12 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class AccountStatementComponent implements OnInit {
 
-  @Input() transferData: any[]; // receber os dados do component pai
+  transferData: any[]; // receber os dados do component pai
 
-  constructor() { }
+  constructor( private service: TransferService ) { }
 
   ngOnInit(): void {
+    this.transferData = this.service.transfers
   }
 
 }
