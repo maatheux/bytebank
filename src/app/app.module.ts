@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { NewTransferComponent } from './new-transfer/new-transfer.component';
 import { AccountStatementComponent } from './account-statement/account-statement.component';
 import { registerLocaleData } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 registerLocaleData(localePt, 'pt'); // criando um valor para pt
 @NgModule({
@@ -18,7 +19,8 @@ registerLocaleData(localePt, 'pt'); // criando um valor para pt
   ],
   imports: [
     BrowserModule,
-    FormsModule // add esse modulo para add funcionalidades para formulários
+    FormsModule, // add esse modulo para add funcionalidades para formulários
+    HttpClientModule // add metodos para os servico de Http, como get, delete...
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'pt'}, // setando portugues br como o padrão

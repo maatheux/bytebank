@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Transferencia } from '../models/transferencias.model';
 import { TransferService } from '../services/transfer.service';
 
 @Component({
@@ -8,12 +9,15 @@ import { TransferService } from '../services/transfer.service';
 })
 export class AccountStatementComponent implements OnInit {
 
-  transferData: any[]; // receber os dados do component pai
+  transferData: any[];
 
   constructor( private service: TransferService ) { }
 
   ngOnInit(): void {
-    this.transferData = this.service.transfers
+    this.service.allTransfers().subscribe((transfers: Transferencia[]) => {
+      console.table(transfers);
+      this.transferData = transfers;
+    })
   }
 
 }

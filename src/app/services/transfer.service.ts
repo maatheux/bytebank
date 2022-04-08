@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http'
+import { Observable } from 'rxjs';
+import { Transferencia } from '../models/transferencias.model';
 
 @Injectable({
   providedIn: 'root'
@@ -9,14 +12,19 @@ import { Injectable } from '@angular/core';
 // Com o injectable, conseguimos invocar a classe desse serviço dentro do constructor de qualquer component
 export class TransferService {
 
-  transferList: any[];
+  private transferList: any[];
+  private url = 'http://localhost:3000/transferencias'; // o caminho para api rest
 
-  constructor() {
+  constructor(private httpClient: HttpClient) {
     this.transferList = [];
   }
 
   get transfers() {
     return this.transferList;
+  }
+
+  allTransfers(): Observable<Transferencia[]> {
+    return this.httpClient.get<Transferencia[]>(this.url)
   }
 
   addNewTransfer(transfer: any) {
