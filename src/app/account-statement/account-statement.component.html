@@ -1,0 +1,18 @@
+<table class="tabela">
+    <thead class="tabela__cabecalho">
+        <th class="tabela__cabecalho__conteudo">Data</th>
+        <th class="tabela__cabecalho__conteudo">Valor</th>
+        <th class="tabela__cabecalho__conteudo">Destino</th>
+    </thead>
+    <tbody *ngIf="transferData?.length > 0; else emptyList">
+        <tr class="tabela__linha" *ngFor="let transfer of transferData">
+            <td class="tabela__conteudo">{{ transfer?.date | date: "short" }}</td> <!--Utilizamos o datePipe para formatar a data-->
+            <td class="tabela__conteudo">{{transfer?.value | currency }}</td> <!--porem o input precisa estar como type number-->
+            <td class="tabela__conteudo">{{transfer?.valueTo }}</td>
+        </tr>
+    </tbody>
+    <ng-template #emptyList>
+        <p>Nenhuma transferência registrada</p>
+    </ng-template>
+    
+</table>
