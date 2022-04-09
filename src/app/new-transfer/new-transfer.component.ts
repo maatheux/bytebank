@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { TransferService } from '../services/transfer.service';
 
 @Component({
   selector: 'app-new-transfer',
@@ -7,12 +8,10 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class NewTransferComponent implements OnInit {
 
-  @Output() whenTransfering = new EventEmitter<any>(); // irá fazer a exportação dos dados
-
   value: number;
   valueTo: number;
 
-  constructor() { }
+  constructor(private service: TransferService) { }
 
   ngOnInit(): void {
   }
@@ -20,8 +19,11 @@ export class NewTransferComponent implements OnInit {
   transferAction() {
     console.log('Valor transferido!');
     const valuesToEmit = {value: this.value, valueTo: this.valueTo};
-    this.whenTransfering.emit(valuesToEmit);
-    this.clearInput();
+    this.service.addNewTransfer(valuesToEmit).subscribe(result => {
+      console.log(result);
+      this.clearInput();
+    },
+    (error) => console.error(error));
   }
 
   clearInput() {

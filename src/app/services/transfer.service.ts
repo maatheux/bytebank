@@ -27,10 +27,10 @@ export class TransferService {
     return this.httpClient.get<Transferencia[]>(this.url)
   }
 
-  addNewTransfer(transfer: any) {
+  addNewTransfer(transfer: Transferencia): Observable<Transferencia> {
     this.setdate(transfer);
     /* const transfer = {...$event, date: new Date()} */
-    this.transferList.push(transfer);
+    return this.httpClient.post<Transferencia>(this.url, transfer);
   }
 
   setdate(transfer: any) {
