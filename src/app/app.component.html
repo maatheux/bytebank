@@ -1,5 +1,7 @@
-<app-new-transfer></app-new-transfer>
-<!--Recebendo os dados do new-transfer-->
-
-<app-account-statement></app-account-statement>
-
+<header>
+  <a routerLink="extrato" >Bytebank</a>
+  <a routerLink="nova-transferencia" routerLinkActive="ativo" >Nova Transferencia</a>
+</header>
+<main>
+  <router-outlet></router-outlet> <!--É do RouterModule-->
+</main>
