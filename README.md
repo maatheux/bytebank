@@ -1,8 +1,10 @@
 # Bytebank
 
-Projeto desenvolvido durante o curso de angular da Alura.
+## Running Json Server
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
+Run `npm install -g json-server` to install json server.
+
+Navigate to data directory using `cd data` then run `json-server --watch db.json` to start json server.
 
 ## Development server
 
